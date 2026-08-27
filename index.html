@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ankit Sharma — Technical Product Manager</title>
+<meta name="description" content="Ankit Sharma, Technical Product Manager — banking API integrations, enterprise document systems, and product delivery." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B1220;
+    --ink-2:#111A2C;
+    --paper:#ECEEF3;
+    --paper-dim:#B8C0CF;
+    --brass:#C9A227;
+    --brass-soft:#8E7420;
+    --cyan:#57D9CC;
+    --slate:#7C8798;
+    --line: rgba(236,238,243,0.10);
+    --maxw: 1080px;
+    --serif: "Source Serif 4", Georgia, serif;
+    --grotesk: "Space Grotesk", sans-serif;
+    --mono: "IBM Plex Mono", monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:var(--serif);
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--brass); color:var(--ink); }
+
+  a{ color:inherit; }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background:rgba(11,18,32,0.82);
+    backdrop-filter: blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw); margin:0 auto; padding:16px 28px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav-mark{
+    font-family:var(--mono); font-size:13px; letter-spacing:0.08em;
+    color:var(--brass); text-decoration:none;
+  }
+  .nav-links{ display:flex; gap:28px; list-style:none; }
+  .nav-links a{
+    font-family:var(--grotesk); font-size:13px; letter-spacing:0.03em;
+    color:var(--paper-dim); text-decoration:none; transition:color .2s;
+  }
+  .nav-links a:hover{ color:var(--cyan); }
+  .nav-links{ display:none; }
+  @media (min-width:720px){ .nav-links{ display:flex; } }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:168px 0 88px;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  #node-canvas{
+    position:absolute; inset:0; width:100%; height:100%;
+    opacity:0.85;
+  }
+  .hero-inner{ position:relative; z-index:2; }
+  .eyebrow{
+    font-family:var(--mono); font-size:12.5px; letter-spacing:0.14em;
+    color:var(--cyan); text-transform:uppercase; margin-bottom:22px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{
+    content:""; width:22px; height:1px; background:var(--cyan); display:inline-block;
+  }
+  h1.hero-title{
+    font-family:var(--grotesk); font-weight:600;
+    font-size:clamp(2.4rem, 6vw, 4.1rem);
+    line-height:1.04; letter-spacing:-0.02em;
+    color:var(--paper);
+    max-width:14ch;
+  }
+  h1.hero-title em{
+    font-style:normal; color:var(--brass);
+  }
+  .hero-sub{
+    margin-top:26px; max-width:52ch;
+    font-size:19px; color:var(--paper-dim);
+    font-family:var(--serif);
+  }
+  .hero-meta{
+    margin-top:40px; display:flex; flex-wrap:wrap; gap:28px 40px;
+  }
+  .stat{ font-family:var(--mono); }
+  .stat b{
+    display:block; font-size:1.6rem; color:var(--paper); font-weight:500;
+  }
+  .stat span{ font-size:12px; color:var(--slate); letter-spacing:0.03em; }
+
+  .hero-cta{ margin-top:44px; display:flex; gap:16px; flex-wrap:wrap; }
+  .btn{
+    font-family:var(--grotesk); font-size:14px; font-weight:500;
+    padding:13px 24px; border-radius:2px; text-decoration:none;
+    letter-spacing:0.02em; transition:all .2s ease;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-primary{
+    background:var(--brass); color:var(--ink);
+    border:1px solid var(--brass);
+  }
+  .btn-primary:hover{ background:transparent; color:var(--brass); }
+  .btn-ghost{
+    border:1px solid var(--line); color:var(--paper-dim);
+  }
+  .btn-ghost:hover{ border-color:var(--cyan); color:var(--cyan); }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ padding:96px 0; border-bottom:1px solid var(--line); }
+  .section-head{
+    display:flex; align-items:baseline; gap:16px; margin-bottom:52px;
+  }
+  .section-num{
+    font-family:var(--mono); font-size:12px; color:var(--brass-soft);
+  }
+  .section-title{
+    font-family:var(--grotesk); font-weight:600; font-size:1.9rem;
+    color:var(--paper); letter-spacing:-0.01em;
+  }
+  .section-line{ flex:1; height:1px; background:var(--line); }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{ display:grid; grid-template-columns:1fr; gap:40px; }
+  @media (min-width:760px){ .about-grid{ grid-template-columns: 1.4fr 1fr; } }
+  .about-text p{ color:var(--paper-dim); font-size:17px; margin-bottom:18px; max-width:60ch; }
+  .about-text strong{ color:var(--paper); font-weight:600; }
+  .about-facts{ font-family:var(--mono); font-size:13.5px; color:var(--slate); }
+  .fact-row{
+    display:flex; justify-content:space-between; padding:11px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .fact-row span:first-child{ color:var(--slate); }
+  .fact-row span:last-child{ color:var(--paper-dim); text-align:right; }
+
+  /* ---------- EXPERIENCE (LEDGER) ---------- */
+  .ledger{ border-top:1px solid var(--line); }
+  .ledger-row{
+    display:grid; grid-template-columns: 100px 1fr; gap:28px;
+    padding:30px 0; border-bottom:1px solid var(--line);
+  }
+  .ledger-date{
+    font-family:var(--mono); font-size:12.5px; color:var(--brass);
+    letter-spacing:0.02em; padding-top:3px;
+  }
+  .ledger-role{
+    font-family:var(--grotesk); font-weight:600; font-size:1.15rem; color:var(--paper);
+  }
+  .ledger-org{ color:var(--cyan); font-size:14px; font-family:var(--mono); margin-top:2px; margin-bottom:16px; }
+  .ledger ul{ list-style:none; }
+  .ledger li{
+    position:relative; padding-left:20px; margin-bottom:10px;
+    color:var(--paper-dim); font-size:15.5px; max-width:66ch;
+  }
+  .ledger li::before{
+    content:"→"; position:absolute; left:0; color:var(--brass-soft); font-family:var(--mono);
+  }
+
+  /* ---------- CASE STUDY (SIGNATURE) ---------- */
+  .case{
+    background:var(--ink-2);
+    border:1px solid var(--line);
+    padding:44px;
+    display:grid; grid-template-columns:1fr; gap:36px;
+  }
+  @media (min-width:760px){ .case{ grid-template-columns: 1fr 1fr; padding:52px; } }
+  .case-title{ font-family:var(--grotesk); font-weight:600; font-size:1.5rem; color:var(--paper); margin-bottom:14px; }
+  .case-desc{ color:var(--paper-dim); font-size:16px; margin-bottom:24px; max-width:52ch; }
+  .case-stats{ display:flex; gap:36px; flex-wrap:wrap; }
+  .case-stats .stat b{ color:var(--brass); }
+  #convergence-canvas{ width:100%; height:260px; display:block; }
+  .case-caption{ font-family:var(--mono); font-size:11.5px; color:var(--slate); margin-top:10px; letter-spacing:0.03em; }
+
+  /* ---------- PROJECTS ---------- */
+  .projects{ display:grid; grid-template-columns:1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
+  @media (min-width:700px){ .projects{ grid-template-columns:1fr 1fr; } }
+  .project-card{ background:var(--ink); padding:34px; transition:background .2s; }
+  .project-card:hover{ background:var(--ink-2); }
+  .project-tag{ font-family:var(--mono); font-size:11px; color:var(--cyan); letter-spacing:0.06em; text-transform:uppercase; }
+  .project-card h3{
+    font-family:var(--grotesk); font-weight:600; font-size:1.2rem; color:var(--paper);
+    margin:12px 0 12px;
+  }
+  .project-card p{ color:var(--paper-dim); font-size:15px; margin-bottom:18px; }
+  .project-link{
+    font-family:var(--mono); font-size:12.5px; color:var(--brass);
+    text-decoration:none; border-bottom:1px solid var(--brass-soft);
+    padding-bottom:2px;
+  }
+  .project-link:hover{ color:var(--cyan); border-color:var(--cyan); }
+
+  /* ---------- SKILLS ---------- */
+  .skill-cols{ display:grid; grid-template-columns:1fr; gap:44px; }
+  @media (min-width:700px){ .skill-cols{ grid-template-columns:1fr 1fr; } }
+  .skill-col h4{
+    font-family:var(--mono); font-size:12px; color:var(--slate);
+    text-transform:uppercase; letter-spacing:0.08em; margin-bottom:18px;
+    padding-bottom:10px; border-bottom:1px solid var(--line);
+  }
+  .chip-row{ display:flex; flex-wrap:wrap; gap:9px; }
+  .chip{
+    font-family:var(--mono); font-size:12.5px; color:var(--paper-dim);
+    border:1px solid var(--line); padding:7px 12px; border-radius:2px;
+  }
+
+  /* ---------- EDUCATION ---------- */
+  .edu-row{ display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px; padding:22px 0; border-bottom:1px solid var(--line); }
+  .edu-row:last-child{ border-bottom:none; }
+  .edu-name{ font-family:var(--grotesk); font-weight:600; color:var(--paper); font-size:1.05rem; }
+  .edu-detail{ color:var(--paper-dim); font-size:14.5px; }
+  .edu-year{ font-family:var(--mono); color:var(--brass); font-size:13px; }
+
+  /* ---------- CONTACT ---------- */
+  .contact-wrap{ text-align:left; }
+  .contact-title{
+    font-family:var(--grotesk); font-weight:600; font-size:clamp(1.8rem,4vw,2.6rem);
+    color:var(--paper); max-width:16ch; margin-bottom:20px;
+  }
+  .contact-sub{ color:var(--paper-dim); max-width:52ch; margin-bottom:44px; font-size:16.5px; }
+  .contact-grid{ display:grid; grid-template-columns:1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
+  @media (min-width:640px){ .contact-grid{ grid-template-columns:repeat(4,1fr); } }
+  .contact-item{
+    background:var(--ink); padding:24px; text-decoration:none;
+    transition:background .2s;
+  }
+  .contact-item:hover{ background:var(--ink-2); }
+  .contact-item .label{ font-family:var(--mono); font-size:11px; color:var(--slate); text-transform:uppercase; letter-spacing:0.08em; display:block; margin-bottom:8px; }
+  .contact-item .value{ font-family:var(--grotesk); font-size:14.5px; color:var(--paper); word-break:break-word; }
+  .contact-item:hover .value{ color:var(--cyan); }
+
+  footer{ padding:36px 0; }
+  .footer-inner{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+  .footer-inner span{ font-family:var(--mono); font-size:11.5px; color:var(--slate); }
+
+  :focus-visible{ outline:2px solid var(--cyan); outline-offset:3px; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="nav-mark" href="#top">AS / TPM</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#case-study">Case Study</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="border-bottom:1px solid var(--line); padding-top:168px;">
+    <canvas id="node-canvas" aria-hidden="true"></canvas>
+    <div class="wrap hero-inner">
+      <div class="eyebrow">Technical Product Manager — Digital Banking</div>
+      <h1 class="hero-title">Ankit Sharma turns <em>90+ disconnected systems</em> into one working repository.</h1>
+      <p class="hero-sub">I sit between engineering and the business at ICICI Bank, writing the requirements, running the sprints, and owning the API integrations that keep enterprise banking platforms talking to each other.</p>
+      <div class="hero-meta">
+        <div class="stat"><b>90+</b><span>APPS INTEGRATED</span></div>
+        <div class="stat"><b>200Cr+</b><span>DOCUMENTS UNIFIED</span></div>
+        <div class="stat"><b>50%</b><span>PROCESSING EFFICIENCY GAIN</span></div>
+        <div class="stat"><b>3+ YRS</b><span>IN BANKING TECH</span></div>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#contact">Get in touch</a>
+        <a class="btn btn-ghost" href="#case-study">See the case study</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num">01</span><span class="section-title">About</span><span class="section-line"></span></div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>I'm a <strong>Technical Product Manager</strong> at ICICI Bank, where I translate business needs into detailed requirements and user stories, then stay close enough to engineering to keep those requirements honest through delivery.</p>
+          <p>Most of my last three years have gone into <strong>One Bank One Repository</strong> — an enterprise document management transformation connecting 90+ internal applications through API-based workflows. I write the BRDs, run sprint planning and backlog grooming, partner with QA on UAT and go-live readiness, and build the SQL and Power BI dashboards leadership uses to track it.</p>
+          <p>Before banking, I studied Electrical Engineering at NIT Kurukshetra and spent a stint at DRDO Hyderabad working on trajectory simulation for ground-to-air missiles — a different kind of systems problem, same instinct for getting the moving parts to agree with each other.</p>
+        </div>
+        <div class="about-facts">
+          <div class="fact-row"><span>Based in</span><span>Jhajjar, Haryana, India</span></div>
+          <div class="fact-row"><span>Current role</span><span>TPM, Digital Banking — ICICI Bank</span></div>
+          <div class="fact-row"><span>Education</span><span>B.Tech EE, NIT Kurukshetra</span></div>
+          <div class="fact-row"><span>CGPA</span><span>9.0055</span></div>
+          <div class="fact-row"><span>Focus areas</span><span>API integration, Agile delivery, BRDs</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num">02</span><span class="section-title">Experience</span><span class="section-line"></span></div>
+      <div class="ledger">
+        <div class="ledger-row">
+          <div class="ledger-date">Jan 2023<br/>— Present</div>
+          <div>
+            <div class="ledger-role">Technical Product Manager, Digital Banking</div>
+            <div class="ledger-org">ICICI Bank · India</div>
+            <ul>
+              <li>Translate business needs into technical requirements and user stories, delivering BRDs for digital banking and enterprise document management initiatives.</li>
+              <li>Define technical roadmaps with engineering teams and design end-to-end workflows integrating APIs across enterprise banking platforms.</li>
+              <li>Manage and prioritize the product backlog, running sprint planning and backlog refinement across Agile delivery cycles.</li>
+              <li>Conduct process and gap analysis to clarify technical challenges, balance trade-offs, and support automation and AI-enabled improvements.</li>
+              <li>Partner with QA on UAT, A/B testing, feature validation, and go-live readiness.</li>
+              <li>Build SQL, Excel, and Power BI dashboards to track KPIs/OKRs for leadership decision-making.</li>
+              <li>Own enterprise API-based integrations connecting 90+ internal applications to centralized repository systems.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="ledger-row">
+          <div class="ledger-date">Internship</div>
+          <div>
+            <div class="ledger-role">Research Intern — Optimal Trajectory Simulation for Ground-to-Air Missiles</div>
+            <div class="ledger-org">DRDO Hyderabad · India</div>
+            <ul>
+              <li>Supported simulation and analytical activities related to trajectory optimization for defense research initiatives.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY -->
+  <section id="case-study">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num">03</span><span class="section-title">Flagship case study</span><span class="section-line"></span></div>
+      <div class="case">
+        <div>
+          <div class="case-title">One Bank One Repository</div>
+          <p class="case-desc">ICICI Bank ran 90+ applications each managing documents on their own terms — inconsistent formats, duplicated storage, no single source of truth. I helped lead the requirements and integration work to route them all through one centralized, API-connected repository.</p>
+          <p class="case-desc">My role covered the full loop: writing the BRDs and functional specs, defining the API integration roadmap with engineering, coordinating UAT across dozens of stakeholder teams, and building the Power BI dashboards that tracked rollout KPIs for leadership.</p>
+          <div class="case-stats">
+            <div class="stat"><b>90+</b><span>APPS ON ONE REPOSITORY</span></div>
+            <div class="stat"><b>200Cr+</b><span>DOCUMENTS RESTRUCTURED</span></div>
+            <div class="stat"><b>50%</b><span>FASTER DOCUMENT PROCESSING</span></div>
+          </div>
+        </div>
+        <div>
+          <canvas id="convergence-canvas" aria-hidden="true"></canvas>
+          <div class="case-caption">EACH NODE = ONE INTEGRATED APPLICATION, CONVERGING ON THE CENTRAL REPOSITORY</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num">04</span><span class="section-title">Self-directed product work</span><span class="section-line"></span></div>
+      <div class="projects">
+        <div class="project-card">
+          <span class="project-tag">Payments · Compliance</span>
+          <h3>SWIFT / ISO 20022 Payment Compliance</h3>
+          <p>A self-driven product case study on cross-border payments. I wrote the PRD, generated synthetic transaction data, and built a validator that checks messages against the ISO 20022 standard.</p>
+          <a class="project-link" href="#" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+        <div class="project-card">
+          <span class="project-tag">Healthcare · AI</span>
+          <h3>Prior Authorization AI Triage Assistant</h3>
+          <p>A healthcare product case study: a PRD, an ML-based triage model, and an Azure cloud architecture designed to automate prior-authorization request routing.</p>
+          <a class="project-link" href="#" target="_blank" rel="noopener">View on GitHub →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num">05</span><span class="section-title">Skills</span><span class="section-line"></span></div>
+      <div class="skill-cols">
+        <div class="skill-col">
+          <h4>Product &amp; Delivery</h4>
+          <div class="chip-row">
+            <span class="chip">Technical Roadmapping</span>
+            <span class="chip">Backlog Management</span>
+            <span class="chip">Sprint Planning</span>
+            <span class="chip">Agile / Scrum</span>
+            <span class="chip">BRD / Functional Specs</span>
+            <span class="chip">Stakeholder Management</span>
+            <span class="chip">Trade-off Analysis</span>
+            <span class="chip">KPI / OKR Reporting</span>
+            <span class="chip">Gap Analysis</span>
+            <span class="chip">A/B Testing</span>
+          </div>
+        </div>
+        <div class="skill-col">
+          <h4>Technical</h4>
+          <div class="chip-row">
+            <span class="chip">SQL</span>
+            <span class="chip">API Integrations</span>
+            <span class="chip">Power BI</span>
+            <span class="chip">JIRA</span>
+            <span class="chip">Whizible</span>
+            <span class="chip">UAT Coordination</span>
+            <span class="chip">SDLC</span>
+            <span class="chip">Process Documentation</span>
+            <span class="chip">Excel / Dashboards</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="wrap">
+      <div class="section-head"><span class="section-num">06</span><span class="section-title">Education</span><span class="section-line"></span></div>
+      <div class="edu-row">
+        <div>
+          <div class="edu-name">National Institute of Technology, Kurukshetra</div>
+          <div class="edu-detail">B.Tech, Electrical Engineering · CGPA 9.0055</div>
+        </div>
+        <div class="edu-year">2018 — 2022</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="border-bottom:none;">
+    <div class="wrap contact-wrap">
+      <div class="section-head"><span class="section-num">07</span><span class="section-title">Contact</span><span class="section-line"></span></div>
+      <p class="contact-title">Building something that needs a bridge between product and engineering?</p>
+      <p class="contact-sub">Open to Technical Product Manager, Product Owner, and API Product Manager roles in fintech and banking. Reach out directly below.</p>
+      <div class="contact-grid">
+        <a class="contact-item" href="mailto:ankit10838@gmail.com">
+          <span class="label">Email</span>
+          <span class="value">ankit10838@gmail.com</span>
+        </a>
+        <a class="contact-item" href="tel:+918571049972">
+          <span class="label">Phone</span>
+          <span class="value">+91 85710 49972</span>
+        </a>
+        <a class="contact-item" href="#" target="_blank" rel="noopener">
+          <span class="label">LinkedIn</span>
+          <span class="value">Add your LinkedIn URL</span>
+        </a>
+        <a class="contact-item" href="#" target="_blank" rel="noopener">
+          <span class="label">GitHub</span>
+          <span class="value">Add your GitHub URL</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>ANKIT SHARMA — TECHNICAL PRODUCT MANAGER</span>
+    <span>JHAJJAR, HARYANA, INDIA</span>
+  </div>
+</footer>
+
+<script>
+  // ---------- Hero ambient node field ----------
+  (function(){
+    const canvas = document.getElementById('node-canvas');
+    const ctx = canvas.getContext('2d');
+    let w, h, nodes = [];
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function resize(){
+      const hero = canvas.closest('.hero');
+      w = canvas.width = hero.offsetWidth;
+      h = canvas.height = hero.offsetHeight;
+      const count = Math.max(18, Math.floor(w / 70));
+      nodes = Array.from({length: count}, () => ({
+        x: Math.random()*w, y: Math.random()*h,
+        vx: (Math.random()-0.5)*0.15, vy: (Math.random()-0.5)*0.15,
+        r: 1 + Math.random()*1.6
+      }));
+    }
+    function step(){
+      ctx.clearRect(0,0,w,h);
+      for(const n of nodes){
+        n.x += n.vx; n.y += n.vy;
+        if(n.x < 0 || n.x > w) n.vx *= -1;
+        if(n.y < 0 || n.y > h) n.vy *= -1;
+      }
+      for(let i=0;i<nodes.length;i++){
+        for(let j=i+1;j<nodes.length;j++){
+          const a = nodes[i], b = nodes[j];
+          const d = Math.hypot(a.x-b.x, a.y-b.y);
+          if(d < 150){
+            ctx.strokeStyle = `rgba(87,217,204,${0.14 * (1 - d/150)})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+          }
+        }
+      }
+      for(const n of nodes){
+        ctx.fillStyle = 'rgba(201,162,39,0.55)';
+        ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI*2); ctx.fill();
+      }
+      if(!reduceMotion) requestAnimationFrame(step);
+    }
+    window.addEventListener('resize', resize);
+    resize();
+    step();
+  })();
+
+  // ---------- Case study: convergence diagram ----------
+  (function(){
+    const canvas = document.getElementById('convergence-canvas');
+    const ctx = canvas.getContext('2d');
+    let w, h, nodes = [], center;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let progress = 0;
+    let started = false;
+
+    function resize(){
+      const rect = canvas.getBoundingClientRect();
+      w = canvas.width = rect.width * devicePixelRatio;
+      h = canvas.height = 260 * devicePixelRatio;
+      canvas.style.height = '260px';
+      center = { x: w*0.72, y: h*0.5 };
+      const count = 32;
+      nodes = Array.from({length: count}, (_, i) => {
+        const angle = (i / count) * Math.PI * 2;
+        const dist = w*0.28 + Math.random()*w*0.08;
+        return {
+          sx: center.x + Math.cos(angle)*dist,
+          sy: center.y + Math.sin(angle)*dist,
+          angle, dist,
+          jitter: Math.random()*Math.PI*2
+        };
+      });
+    }
+
+    function draw(){
+      ctx.clearRect(0,0,w,h);
+      const t = progress;
+      // center repository node
+      ctx.beginPath();
+      ctx.fillStyle = '#C9A227';
+      ctx.arc(center.x, center.y, 8*devicePixelRatio, 0, Math.PI*2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.strokeStyle = 'rgba(201,162,39,0.35)';
+      ctx.lineWidth = 1.5*devicePixelRatio;
+      ctx.arc(center.x, center.y, 20*devicePixelRatio, 0, Math.PI*2);
+      ctx.stroke();
+
+      for(const n of nodes){
+        const wobble = Math.sin(t*0.002 + n.jitter) * 3 * devicePixelRatio;
+        const cx = center.x + (n.sx - center.x + wobble) * (1 - t*0.0006 < 0.35 ? 0.35 : 1 - t*0.0006);
+        const cy = center.y + (n.sy - center.y + wobble) * (1 - t*0.0006 < 0.35 ? 0.35 : 1 - t*0.0006);
+        ctx.beginPath();
+        ctx.strokeStyle = 'rgba(87,217,204,0.18)';
+        ctx.lineWidth = 1*devicePixelRatio;
+        ctx.moveTo(cx, cy); ctx.lineTo(center.x, center.y); ctx.stroke();
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba(236,238,243,0.55)';
+        ctx.arc(cx, cy, 2.4*devicePixelRatio, 0, Math.PI*2);
+        ctx.fill();
+      }
+      progress += 1;
+      if(!reduceMotion) requestAnimationFrame(draw);
+    }
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if(e.isIntersecting && !started){
+          started = true;
+          resize();
+          draw();
+        }
+      });
+    }, { threshold: 0.2 });
+    io.observe(canvas);
+    window.addEventListener('resize', () => { if(started) resize(); });
+    if(reduceMotion){ resize(); draw(); }
+  })();
+</script>
+
+</body>
+</html>
